@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="56" viewBox="0 0 280 56">
+  <!-- Globe icon group -->
+  <g transform="translate(4, 3)">
+    <!-- Curved text: "Human and Machine Automation Co. Ltd." -->
+    <defs>
+      <path id="curvedText" d="M 25,25 m -20,0 a 20,20 0 1,1 40,0" />
+    </defs>
+    <text fill="#ffffff" font-size="4.5" font-family="Arial, sans-serif" letter-spacing="0.8" opacity="0.85">
+      <textPath href="#curvedText" startOffset="4%">Human and Machine Automation Co. Ltd.</textPath>
+    </text>
+
+    <!-- Outer circle -->
+    <circle cx="25" cy="25" r="18" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+
+    <!-- Globe landmass (Korean peninsula style) -->
+    <path d="M20 11 C22 9, 28 9, 33 12 C37 15, 39 20, 38 25 C37 30, 34 34, 28 36 C24 37, 20 35, 18 32 C15 28, 14 22, 16 17 C17 14, 18 12, 20 11Z" fill="#ffffff" opacity="0.9"/>
+    <!-- Inner detail -->
+    <path d="M22 14 C24 13, 30 14, 33 17 C35 20, 35 24, 33 27 C31 30, 27 32, 24 31" fill="none" stroke="#28165c" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Orbit ring (ellipse wrapping globe) -->
+    <ellipse cx="25" cy="29" rx="22" ry="7" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+
+    <!-- Small orbit highlight -->
+    <ellipse cx="25" cy="29" rx="22" ry="7" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 4"/>
+  </g>
+
+  <!-- HAMA text - bold, large -->
+  <text x="58" y="32" fill="#ffffff" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="30" letter-spacing="4">HAMA</text>
+
+  <!-- Divider line -->
+  <line x1="175" y1="10" x2="175" y2="46" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+
+  <!-- Sub text: (주) 에이치앤엠에이 -->
+  <text x="183" y="27" fill="#ffffff" font-family="'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" font-weight="700" font-size="9" opacity="0.9">(주) 에이치앤엠에이</text>
+  <!-- English subtitle -->
+  <text x="183" y="40" fill="#ffffff" font-family="Arial, sans-serif" font-weight="400" font-size="7" letter-spacing="0.5" opacity="0.65">Solution</text>
+</svg>

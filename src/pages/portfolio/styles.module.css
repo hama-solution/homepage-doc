@@ -1,0 +1,1462 @@
+/* ============================================
+   Portfolio Page - Hama Solution
+   ============================================ */
+
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f3460 100%);
+  color: #fff;
+  padding: 5rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+  animation: floatGlow 10s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  animation: floatGlow 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatGlow {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.1); }
+}
+
+.heroLabel {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #60a5fa;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  position: relative;
+  z-index: 1;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.heroStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroStat strong {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.heroStat span {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.heroStatDivider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Section 공통 ─────────────────────────── */
+.section {
+  padding: 4rem 0;
+}
+
+.sectionAlt {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionLabel {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.sectionDesc {
+  font-size: 1.05rem;
+  color: var(--ifm-color-emphasis-600);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ── Card Grid ────────────────────────────── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 2rem 1.5rem 1.5rem;
+  background: var(--ifm-background-surface-color);
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-accent);
+  border-radius: 16px 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: var(--card-accent);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardActive {
+  border-color: var(--card-accent);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  background: color-mix(in srgb, var(--card-accent) 4%, var(--ifm-background-surface-color));
+}
+
+.cardActive::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.cardTag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+}
+
+.cardIcon {
+  font-size: 2rem;
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 0.15rem;
+  color: var(--ifm-font-color-base);
+}
+
+.cardFullTitle {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--ifm-color-emphasis-500);
+  margin-bottom: 0.6rem;
+}
+
+.cardSubtitle {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--card-accent);
+  margin-bottom: 0.6rem;
+}
+
+.cardSummary {
+  font-size: 0.83rem;
+  line-height: 1.65;
+  color: var(--ifm-color-emphasis-600);
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.cardCta {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--card-accent);
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .cardCta {
+  transform: translateX(4px);
+}
+
+/* ── Solution Detail ──────────────────────── */
+.detail {
+  padding: 4rem 0;
+  background: linear-gradient(180deg, var(--ifm-color-emphasis-100) 0%, var(--ifm-background-surface-color) 100%);
+  border-top: 3px solid var(--detail-accent);
+  animation: fadeInUp 0.45s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detailHeader {
+  margin-bottom: 3rem;
+}
+
+.detailTitleArea {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.detailIcon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.detailTag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--detail-accent);
+  margin-bottom: 0.3rem;
+}
+
+.detailTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.detailFullTitle {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-500);
+  margin-top: 0.2rem;
+}
+
+.detailDesc {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 800px;
+}
+
+.detailSection {
+  margin-bottom: 2.5rem;
+}
+
+.detailSectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── Process Flow Diagram (MES) ───────────── */
+.flowDiagram {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.diagramTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 2rem 0;
+  color: var(--ifm-font-color-base);
+}
+
+.flowSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.flowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 2px solid #818cf8;
+  border-radius: 14px;
+  min-width: 110px;
+  max-width: 140px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-theme='dark'] .flowStep {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  border-color: #6366f1;
+}
+
+.flowStep:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.2);
+}
+
+.flowStepIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.flowStepLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ifm-font-color-base);
+}
+
+.flowArrow {
+  display: flex;
+  align-items: center;
+  padding: 0 0.3rem;
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+}
+
+/* ── Architecture Diagram ─────────────────── */
+.archDiagram {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.archLayers {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.archLayer {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px dashed var(--ifm-color-emphasis-200);
+  position: relative;
+}
+
+.archLayer:last-child {
+  border-bottom: none;
+}
+
+.archLayer::before {
+  content: '';
+  position: absolute;
+  left: 80px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--layer-accent);
+  opacity: 0.2;
+}
+
+.archLayerName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--layer-accent);
+  text-align: right;
+  padding-right: 1.5rem;
+  position: relative;
+}
+
+.archLayerName::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--layer-accent);
+}
+
+.archLayerItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.archItem {
+  font-size: 0.78rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  color: var(--ifm-font-color-secondary);
+  transition: all 0.2s ease;
+}
+
+.archItem:hover {
+  border-color: var(--layer-accent);
+  background: color-mix(in srgb, var(--layer-accent) 8%, var(--ifm-color-emphasis-100));
+}
+
+/* ── Room Layout Diagram (통합관제) ───────── */
+.roomDiagram {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.roomCenter {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roomCenterCircle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.roomCenterCircle span {
+  font-size: 0.72rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.roomCenterCircle strong {
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+}
+
+.roomCenterIcon {
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.roomCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.2rem 0.8rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--room-accent) 8%, var(--ifm-background-surface-color)), var(--ifm-background-surface-color));
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s ease;
+}
+
+.roomCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-color: var(--room-accent);
+}
+
+.roomPos0 { grid-column: 1; grid-row: 1; }
+.roomPos1 { grid-column: 3; grid-row: 1; }
+.roomPos2 { grid-column: 1; grid-row: 3; }
+.roomPos3 { grid-column: 3; grid-row: 3; }
+
+.roomCardIcon {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.roomCardName {
+  font-size: 0.88rem;
+  color: var(--room-accent);
+  margin-bottom: 0.2rem;
+}
+
+.roomCardDesc {
+  font-size: 0.72rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* ── Software Architecture Diagram (MES) ──── */
+.swDiagram {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.swMainRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.swSide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.swSideLabel {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-500);
+  letter-spacing: 0.5px;
+  margin-top: 0.3rem;
+}
+
+.swFrameworkLabel {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+}
+
+.swSecondRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.swItemRow {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.swChip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  background: #1e293b;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.swChipDark {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.swApiCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+
+.swApiBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1.2rem 1.5rem;
+  border: 2px dashed var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  background: var(--ifm-color-emphasis-100);
+  min-width: 100px;
+}
+
+.swApiTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+}
+
+.swApiArrow {
+  font-size: 1.3rem;
+  color: var(--ifm-color-primary);
+}
+
+.swApiProtocol {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.swRuntimeRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.swRuntimeBox {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+}
+
+.swRuntimeSpacer {
+  width: 100px;
+}
+
+.swInfraRow {
+  margin-bottom: 0.5rem;
+}
+
+.swInfraBox {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+}
+
+.swDevopsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #e0f2fe;
+  border-radius: 12px;
+}
+
+[data-theme='dark'] .swDevopsRow {
+  background: #172554;
+}
+
+.swDevopsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.15rem;
+}
+
+.swDevopsItem strong {
+  font-size: 0.82rem;
+  color: var(--ifm-font-color-base);
+}
+
+.swDevopsItem span {
+  font-size: 0.68rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.swDevopsArrow {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-400);
+  letter-spacing: -2px;
+}
+
+/* ── Hardware Architecture Diagram (MES) ──── */
+.hwDiagram {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.hwLayers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hwLayer {
+  width: 100%;
+  max-width: 700px;
+  padding: 1rem 0;
+}
+
+.hwLayerLabel {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #1e293b;
+  padding: 0.5rem 1rem;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0;
+}
+
+.hwLayerItems {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.2rem 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.hwItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.8rem 1rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  min-width: 100px;
+  transition: all 0.25s ease;
+}
+
+.hwItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: var(--ifm-color-primary);
+}
+
+.hwItemIcon {
+  font-size: 1.5rem;
+}
+
+.hwItemText {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.3;
+}
+
+.hwConnector {
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 0;
+}
+
+/* ── System Components ────────────────────── */
+.sysComponents {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.sysItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.sysItem:hover {
+  border-color: var(--sys-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.sysNumber {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--sys-accent);
+  opacity: 0.4;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.sysName {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.15rem;
+}
+
+.sysDesc {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* ── Features Grid ────────────────────────── */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.featureCard {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--detail-accent);
+}
+
+.featureIcon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.featureTitle {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--ifm-font-color-base);
+}
+
+.featureDesc {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0;
+}
+
+/* ── Effects Grid ─────────────────────────── */
+.effectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.effectItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  padding: 1rem 1.3rem;
+  transition: all 0.25s ease;
+}
+
+.effectItem:hover {
+  transform: translateX(4px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border-color: var(--detail-accent);
+}
+
+.effectCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--detail-accent) 12%, transparent);
+  color: var(--detail-accent);
+  font-size: 0.85rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.effectText {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+/* ── Utility Network Detail Diagram ──────── */
+.utilNetDiagram {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.cableLegend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.cableLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+.cableLine {
+  display: inline-block;
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.buildingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.buildingCard {
+  border: 2px solid var(--bld-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.buildingCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.buildingHeader {
+  background: var(--bld-color);
+  color: #fff;
+  padding: 0.7rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buildingName {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.buildingFloor {
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+.buildingControllers {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ctrlItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-secondary);
+}
+
+.ctrlDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ctrl_cpu .ctrlDot { background: #ef4444; }
+.ctrl_controller .ctrlDot { background: #3b82f6; }
+.ctrl_rio .ctrlDot { background: #f59e0b; }
+.ctrl_network .ctrlDot { background: #10b981; }
+.ctrl_facility .ctrlDot { background: #8b5cf6; }
+
+/* ── SCADA Panel Detail Diagram ─────────── */
+.scadaPanelDiagram {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.panelGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.panelCard {
+  border: 2px solid var(--panel-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.panelCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.panelHeader {
+  background: var(--panel-color);
+  color: #fff;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.panelItems {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.panelItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-secondary);
+}
+
+.panelItemDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pnl_device .panelItemDot { background: #ef4444; }
+.pnl_connector .panelItemDot { background: #3b82f6; }
+.pnl_cable .panelItemDot { background: #f59e0b; }
+.pnl_network .panelItemDot { background: #10b981; }
+
+.jumperRow {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.jumperItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.jumperItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.jumperIcon {
+  font-size: 1.2rem;
+}
+
+.jumperItem strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--ifm-font-color-base);
+}
+
+.jumperItem span {
+  font-size: 0.72rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+/* ── Process Steps ────────────────────────── */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.8rem;
+  position: relative;
+}
+
+.processGrid::before {
+  content: '';
+  position: absolute;
+  top: 3.2rem;
+  left: 7%;
+  right: 7%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--ifm-color-primary-lightest),
+    var(--ifm-color-primary),
+    var(--ifm-color-primary-lightest)
+  );
+  z-index: 0;
+}
+
+.processStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.processIcon {
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.processNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  margin-bottom: 0.7rem;
+}
+
+.processTitle {
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: var(--ifm-font-color-base);
+}
+
+.processDesc {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0;
+  max-width: 130px;
+}
+
+/* ── Responsive ───────────────────────────── */
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroStats {
+    gap: 1.2rem;
+  }
+
+  .heroStat strong {
+    font-size: 1.4rem;
+  }
+
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sysComponents {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .processGrid {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2rem;
+  }
+
+  .processGrid::before {
+    display: none;
+  }
+
+  .flowSteps {
+    gap: 0.5rem;
+  }
+
+  .flowStep {
+    min-width: 90px;
+    padding: 0.8rem 0.6rem;
+  }
+
+  .swMainRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .swApiCenter {
+    padding-top: 0;
+  }
+
+  .swRuntimeRow {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .swRuntimeSpacer {
+    display: none;
+  }
+
+  .hwLayerItems {
+    gap: 0.6rem;
+  }
+
+  .archLayer {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .archLayerName {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .archLayerName::after {
+    display: none;
+  }
+
+  .archLayer::before {
+    display: none;
+  }
+
+  .roomGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .roomCenter {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .roomPos0 { grid-column: 1; grid-row: 1; }
+  .roomPos1 { grid-column: 2; grid-row: 1; }
+  .roomPos2 { grid-column: 1; grid-row: 3; }
+  .roomPos3 { grid-column: 2; grid-row: 3; }
+
+  .buildingGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .panelGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroStats {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .heroStatDivider {
+    width: 40px;
+    height: 1px;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.7rem;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .cardTitle {
+    font-size: 1.6rem;
+  }
+
+  .detailTitleArea {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .detailIcon {
+    font-size: 2.5rem;
+  }
+
+  .detailTitle {
+    font-size: 1.6rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .effectsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sysComponents {
+    grid-template-columns: 1fr;
+  }
+
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Flow diagram mobile */
+  .flowSteps {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flowStep {
+    min-width: 160px;
+  }
+
+  .flowArrow {
+    transform: rotate(90deg);
+    padding: 0.3rem 0;
+  }
+
+  /* Room grid mobile */
+  .roomGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .roomCenter {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .roomPos0 { grid-column: 1; grid-row: 1; }
+  .roomPos1 { grid-column: 1; grid-row: 2; }
+  .roomPos2 { grid-column: 1; grid-row: 4; }
+  .roomPos3 { grid-column: 1; grid-row: 5; }
+}

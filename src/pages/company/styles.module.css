@@ -1,0 +1,684 @@
+/* ============================================
+   Company Page - Hama Solution
+   ============================================ */
+
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
+  padding: 5rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(46, 133, 85, 0.12) 0%,
+    transparent 60%
+  );
+  animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(5%, -5%); }
+}
+
+.heroLabel {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--ifm-color-primary-light);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.heroNav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.heroNavItem {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.heroNavItem:hover {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* ── Section 공통 ─────────────────────────── */
+.section {
+  padding: 5rem 0;
+}
+
+.sectionAlt {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.sectionLabel {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+/* ── 1. 인사말 ────────────────────────────── */
+.greetingWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.greetingContent {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--ifm-font-color-base);
+}
+
+.greetingContent p {
+  margin-bottom: 1rem;
+}
+
+.greetingQuote {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--ifm-color-primary-dark);
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: 1rem 0 1rem 1.5rem;
+  margin: 0 0 2rem 0;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 0 8px 8px 0;
+}
+
+.ceoSign {
+  margin-top: 2rem;
+  text-align: right;
+  font-size: 1.1rem;
+}
+
+.greetingVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Consulting Illustration */
+.consultingIllust {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consultingSvg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.06));
+}
+
+/* ── 2. 회사연혁 (Timeline) ───────────────── */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--ifm-color-primary-lightest);
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 0 2.5rem 2.5rem;
+  box-sizing: border-box;
+}
+
+.timelineLeft {
+  left: 0;
+  text-align: right;
+  padding-right: 3rem;
+  padding-left: 0;
+}
+
+.timelineRight {
+  left: 50%;
+  text-align: left;
+  padding-left: 3rem;
+  padding-right: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  background: var(--ifm-color-primary);
+  border: 3px solid var(--ifm-background-surface-color);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 0 3px var(--ifm-color-primary-lightest);
+}
+
+.timelineLeft .timelineDot {
+  right: -8px;
+}
+
+.timelineRight .timelineDot {
+  left: -8px;
+}
+
+.timelineCard {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.timelineCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.timelineYear {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.timelineEvents {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timelineEvents li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-secondary);
+  padding: 0.2rem 0;
+}
+
+.timelineEvents li::before {
+  content: '•';
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.timelineRight .timelineEvents li::before {
+  margin-right: 0.5rem;
+}
+
+/* ── 3. 조직도 (V2 - 이미지 매칭) ──────────── */
+.orgChartV2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* CEO box - 파란 라운드 박스 */
+.orgCeoBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3rem;
+  background: #4a90d9;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.1rem;
+}
+
+.orgCeoBox strong {
+  font-weight: 700;
+}
+
+/* Vertical connector line */
+.orgVLine {
+  width: 2px;
+  height: 42px;
+  background: #ccc;
+}
+
+/* Middle row: 기술연구소 (left) + center line + 경영지원팀 (right) */
+.orgMidRow {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.orgMidLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.orgMidCenter {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 2px;
+  position: relative;
+}
+
+.orgHLineCenter {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  right: -200px;
+  height: 2px;
+  background: #ccc;
+}
+
+.orgMidRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.orgHLineBranch {
+  width: 2px;
+  height: 24px;
+  background: #ccc;
+  align-self: center;
+}
+
+/* 기술연구소 - 점선 박스 */
+.orgLabBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.8rem 1.8rem;
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  position: relative;
+  align-self: center;
+}
+
+.orgLabBox strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+}
+
+.orgLabBadge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 0.2rem;
+}
+
+/* 경영지원팀 - 일반 박스 */
+.orgMgmtBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.8rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  align-self: center;
+}
+
+.orgMgmtBox strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+}
+
+/* Branch line (horizontal) connecting to teams */
+.orgBranchLine {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.orgBranchH {
+  width: 75%;
+  height: 2px;
+  background: #ccc;
+}
+
+/* Team vertical lines */
+.orgTeamRow {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+}
+
+.orgTeamVLine {
+  width: 2px;
+  height: 24px;
+  background: #ccc;
+}
+
+/* Team boxes - 진한 네이비 */
+.orgTeamBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e, #1e293b);
+  color: #fff;
+  border-radius: 10px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.orgTeamBox:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.orgTeamBox strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.orgTeamBox span {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Legacy classes kept for compatibility */
+.orgChart { display: none; }
+.orgLevel { display: none; }
+.orgConnector { display: none; }
+.orgNode { display: none; }
+.orgCeo { display: none; }
+.orgDivision { display: none; }
+.orgTeam { display: none; }
+.orgIcon { display: none; }
+.orgDesc { display: none; }
+
+/* ── 4. 오시는길 ──────────────────────────── */
+.locationWrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.mapContainer {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.map {
+  width: 100%;
+  height: 420px;
+  background: var(--ifm-color-emphasis-200);
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationCard {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.locationItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.locationItem:last-child {
+  border-bottom: none;
+}
+
+.locationIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.locationItem strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-600);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.2rem;
+}
+
+.locationItem p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ── Responsive ───────────────────────────── */
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .greetingWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .consultingSvg {
+    max-width: 340px;
+  }
+
+  /* Timeline: 한 쪽으로 */
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timelineItem {
+    width: 100%;
+    padding-left: 3.5rem;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .timelineLeft {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 3.5rem;
+  }
+
+  .timelineRight {
+    left: 0;
+    padding-left: 3.5rem;
+  }
+
+  .timelineLeft .timelineDot,
+  .timelineRight .timelineDot {
+    left: 12px;
+    right: auto;
+  }
+
+  /* 조직도 V2 */
+  .orgMidLeft {
+    padding-left: 0.5rem;
+  }
+
+  .orgMidRight {
+    padding-right: 0.5rem;
+  }
+
+  .orgTeamBox {
+    min-width: 150px;
+    padding: 1.2rem 1rem;
+  }
+
+  .orgTeamBox strong {
+    font-size: 0.9rem;
+  }
+
+  /* 오시는길 */
+  .locationWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .map {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .heroNav {
+    gap: 0.4rem;
+  }
+
+  .heroNavItem {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.7rem;
+  }
+
+  .greetingQuote {
+    font-size: 1.1rem;
+  }
+
+  .consultingSvg {
+    max-width: 280px;
+  }
+
+  /* 조직도 V2 mobile */
+  .orgMidRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .orgMidLeft,
+  .orgMidRight {
+    padding: 0;
+    align-items: center;
+  }
+
+  .orgHLineCenter {
+    display: none;
+  }
+
+  .orgBranchH {
+    width: 60%;
+  }
+
+  .orgTeamRow {
+    width: 60%;
+  }
+
+  .orgTeamBox {
+    min-width: 130px;
+    padding: 1rem 0.8rem;
+  }
+
+  .orgTeamBox strong {
+    font-size: 0.85rem;
+  }
+
+  .orgTeamBox span {
+    font-size: 0.75rem;
+  }
+}
