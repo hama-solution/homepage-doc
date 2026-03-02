@@ -93,8 +93,8 @@ const clientLogos = [
   {name: '삼성SDS', logo: '/img/clients/samsung-sds.png'},
   {name: '삼성전기', logo: '/img/clients/samsung-electro.png'},
   {name: '삼성디스플레이', logo: '/img/clients/samsung-display.png'},
-  {name: 'Soulbrain', initials: 'SB', color: '#e63312'},
-  {name: 'SKON', initials: 'SK', color: '#00a651'},
+  {name: 'Soulbrain', logo: '/img/clients/soulbrain.png'},
+  {name: 'SKON', logo: '/img/clients/skon.png'},
 ];
 
 /* ──────────────────────────────────────────────

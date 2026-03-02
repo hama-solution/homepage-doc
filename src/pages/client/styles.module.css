@@ -144,6 +144,15 @@
   transform: scale(1.05);
 }
 
+.logoWallImg {
+  max-width: 48px;
+  max-height: 32px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .logoWallInitial {
   display: inline-flex;
   align-items: center;
@@ -268,6 +277,28 @@
 }
 
 /* ── Logo ─────────────────────────────────── */
+.logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 64px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.clientCard:hover .logoWrap {
+  transform: scale(1.05);
+}
+
+.logoImg {
+  max-width: 80px;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .logoInitial {
   display: flex;
   align-items: center;

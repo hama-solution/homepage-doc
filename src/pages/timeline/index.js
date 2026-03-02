@@ -62,71 +62,61 @@ const timelineData = [
     ],
   },
   {
-    year: '2024',
+    year: '참고 프로젝트',
     projects: [
       {
         no: 1,
-        client: 'SDI Hungary',
-        project: '전력 SCADA 시스템 구축 (2단지)',
-        category: 'SCADA',
+        client: 'SEVT (삼성전자 베트남, 타이응웬))',
+        project: '전력/용역 제어시스템 및 통합관제 시스템 구축',
+        category: '',
       },
       {
         no: 2,
-        client: 'SDI Hungary',
-        project: 'Utility 제어시스템 구축 (2단지)',
-        category: 'Utility',
+        client: 'SEV(삼성전자 베트남, 박린)',
+        project: '전력/용역 제어시스템 및 통합관제 시스템 구축',
+        category: '',
       },
       {
         no: 3,
-        client: 'Soulbrain Hungary',
-        project: '전해액 물류 관리 시스템 고도화',
-        category: 'MES',
+        client: 'SEMV(삼성전기 베트남)',
+        project: '전력/용역 제어시스템 및 통합관제 시스템 구축',
+        category: '',
       },
       {
         no: 4,
-        client: 'SDI Hungary',
-        project: '통합관제센터 인테리어 설계 및 구축',
-        category: 'Control Center',
-      },
-    ],
-  },
-  {
-    year: '2023',
-    projects: [
-      {
-        no: 1,
-        client: 'SDI Hungary',
-        project: '전력 SCADA 시스템 구축 (1단지)',
-        category: 'SCADA',
+        client: 'SDV (삼성디스플레이 베트남)',
+        project: '전력/용역 제어시스템 및 통합관제 시스템 구축',
+        category: '',
       },
       {
-        no: 2,
-        client: 'SDI Hungary',
-        project: 'Utility 제어시스템 구축 (1단지)',
-        category: 'Utility',
+        no: 5,
+        client: '삼성전기 부산사업장 ',
+        project: '전력/용역 제어시스템 및 통합관제 시스템 구축',
+        category: '',
       },
       {
-        no: 3,
-        client: 'Soulbrain Hungary',
-        project: 'CMS 초기 버전 개발',
-        category: 'MES',
-      },
-    ],
-  },
-  {
-    year: '2022',
-    projects: [
-      {
-        no: 1,
-        client: 'SDI Hungary',
-        project: 'FMCS 네트워크 설계 및 기본 인프라 구축',
-        category: 'Infra',
+        no: 6,
+        client: '제일모직(현 롯데케미칼)',
+        project: '전사 MES 시스템 설비 온라인 시스템 설계 및 구축',
+        category: '',
       },
       {
-        no: 2,
-        client: 'SDI Hungary',
-        project: '전력 SCADA 기본 설계',
-        category: 'SCADA',
+        no: 7,
+        client: '삼성디스플레이 천안사업장',
+        project: '전력/용역 제어시스템 및 통합관제 시스템 구축',
+        category: '',
+      },
+      {
+        no: 8,
+        client: '삼성디스플레이 천진사업장',
+        project: '전력/용역 제어시스템 및 통합관제 시스템 구축',
+        category: '',
+      },
+      {
+        no: 8,
+        client: '한화토탈',
+        project: '전력 제어시스템 및 관제시스템',
+        category: '',
       },
     ],
   },
@@ -171,6 +161,7 @@ function TimelineHero() {
         <p className={styles.heroSubtitle}>
           하마솔루션이 수행한 주요 프로젝트와 고객사를 소개합니다
         </p>
+{/* 
         <div className={styles.heroStats}>
           <div className={styles.heroStat}>
             <strong>{totalProjects}</strong>
@@ -187,6 +178,7 @@ function TimelineHero() {
             <span>Years</span>
           </div>
         </div>
+         */}
       </div>
     </header>
   );

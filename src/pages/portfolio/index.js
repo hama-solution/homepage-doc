@@ -382,6 +382,7 @@ function PortfolioHero() {
         <p className={styles.heroSubtitle}>
           스마트 팩토리 구축을 위한 하마솔루션의 4대 핵심 솔루션
         </p>
+{/* 
         <div className={styles.heroStats}>
           <div className={styles.heroStat}>
             <strong>4</strong>
@@ -403,6 +404,7 @@ function PortfolioHero() {
             <span>재고 정확도</span>
           </div>
         </div>
+         */}
       </div>
     </header>
   );
@@ -505,14 +507,14 @@ function RoomLayoutDiagram({layout, accentColor}) {
     <div className={styles.roomDiagram}>
       <h4 className={styles.diagramTitle}>{layout.title}</h4>
       <div className={styles.roomGrid}>
-        <div className={styles.roomCenter}>
+        {/* <div className={styles.roomCenter}>
           <div className={styles.roomCenterCircle}>
             <span>인테리어</span>
             <strong>Concept</strong>
             <span className={styles.roomCenterIcon}>⚙️</span>
           </div>
-        </div>
-        {layout.rooms.map((room, idx) => (
+        </div> */}
+        {/* {layout.rooms.map((room, idx) => (
           <div
             key={idx}
             className={clsx(styles.roomCard, styles[`roomPos${idx}`])}
@@ -521,7 +523,16 @@ function RoomLayoutDiagram({layout, accentColor}) {
             <strong className={styles.roomCardName}>{room.name}</strong>
             <span className={styles.roomCardDesc}>{room.desc}</span>
           </div>
-        ))}
+        ))} */}
+      </div>
+      {/* Monitoring Image */}
+      <div className={styles.roomMonitoringWrap}>
+        <img
+          src="/img/portfolio/mornitoring.png"
+          alt="모니터링 룸 레이아웃"
+          className={styles.roomMonitoringImg}
+          loading="lazy"
+        />
       </div>
     </div>
   );
@@ -687,6 +698,27 @@ function UtilityNetworkDiagram({detail}) {
           </div>
         ))}
       </div>
+      {/* Network Detail Images */}
+      <div className={styles.utilNetImages}>
+        <div className={styles.utilNetImgWrap}>
+          <img
+            src="/img/portfolio/utility01.png"
+            alt="Utility 네트워크 구성도"
+            className={styles.utilNetImg}
+            loading="lazy"
+          />
+          <span className={styles.utilNetImgCaption}>네트워크 구성도</span>
+        </div>
+        <div className={styles.utilNetImgWrap}>
+          <img
+            src="/img/portfolio/utility02.png"
+            alt="Utility 모니터링 화면"
+            className={styles.utilNetImg}
+            loading="lazy"
+          />
+          <span className={styles.utilNetImgCaption}>모니터링 화면</span>
+        </div>
+      </div>
     </div>
   );
 }
@@ -732,6 +764,28 @@ function ScadaPanelDiagram({detail}) {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Network Detail Images */}
+      <div className={styles.utilNetImages}>
+        <div className={styles.utilNetImgWrap}>
+          <img
+            src="/img/portfolio/scada01.png"
+            alt="Utility 네트워크 구성도"
+            className={styles.utilNetImg}
+            loading="lazy"
+          />
+          <span className={styles.utilNetImgCaption}>네트워크 구성도</span>
+        </div>
+        <div className={styles.utilNetImgWrap}>
+          <img
+            src="/img/portfolio/scada02.png"
+            alt="Utility 모니터링 화면"
+            className={styles.utilNetImg}
+            loading="lazy"
+          />
+          <span className={styles.utilNetImgCaption}>모니터링 화면</span>
+        </div>
       </div>
     </div>
   );

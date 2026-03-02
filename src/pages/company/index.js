@@ -28,7 +28,7 @@ function Greeting() {
             </p>
             <p>
               저희 (주)에이치앤엠에이는 제조 현장의 디지털 전환을 선도하는 산업 IT 전문 기업입니다.
-              MES(자재관리, 창고관리), 유틸리티 제어시스템, 전력 SCADA, 통합제어 시스템 등
+              설비/공정제어시스템,통합관제시스템,전력/용역제어시스템,MES 등
               스마트 팩토리 핵심 솔루션을 통해 고객사의 생산성 향상과 운영 효율화를 실현하고 있습니다.
             </p>
             <p>
@@ -365,9 +365,26 @@ function Location() {
 
       const infowindow = new window.kakao.maps.InfoWindow({
         content:
-          '<div style="padding:8px 12px;font-size:13px;font-weight:600;white-space:nowrap;">하마솔루션(Hama Solution)</div>',
+          '<div style="padding:8px 12px;font-size:13px;font-weight:600;white-space:nowrap;">(주)에이치앤엠에이 (HAMA Solution)</div>',
       });
-      infowindow.open(map, marker);
+      // infowindow.open(map, marker);
+
+      const geocoder = new kakao.maps.services.Geocoder();
+      geocoder.addressSearch('경기 화성시 동탄대로 706', function(result, status) {
+        // 정상적으로 검색이 완료됐으면
+        if (status === kakao.maps.services.Status.OK) {
+            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+            // 결과값으로 받은 위치를 마커로 표시합니다
+            var marker = new kakao.maps.Marker({
+                map : map,
+                position : coords,
+            });
+            
+            infowindow.open(map, marker);
+            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+            map.setCenter(coords);
+        }
+    });
     });
   }, [mapLoaded]);
 

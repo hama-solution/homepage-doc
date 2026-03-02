@@ -18,6 +18,7 @@ const clientGroups = [
         description: '반도체, 디스플레이, IT & Mobile',
         color: '#1428a0',
         initial: 'SE',
+        logo: '/img/clients/samsung-electronics.png',
       },
       {
         name: '삼성SDI',
@@ -25,6 +26,7 @@ const clientGroups = [
         description: '이차전지, 전자재료',
         color: '#0b3d91',
         initial: 'SDI',
+        logo: '/img/clients/samsung-sdi.png',
       },
       {
         name: '삼성SDS',
@@ -32,6 +34,7 @@ const clientGroups = [
         description: 'IT 서비스, 클라우드, 물류',
         color: '#0066b3',
         initial: 'SDS',
+        logo: '/img/clients/samsung-sds.png',
       },
       {
         name: '삼성전기',
@@ -39,6 +42,7 @@ const clientGroups = [
         description: '전자부품, MLCC, 기판',
         color: '#00447c',
         initial: 'SEM',
+        logo: '/img/clients/samsung-electro.png',
       },
       {
         name: '삼성디스플레이',
@@ -46,6 +50,7 @@ const clientGroups = [
         description: 'OLED, LCD 디스플레이',
         color: '#2c2c8a',
         initial: 'SD',
+        logo: '/img/clients/samsung-display.png',
       },
     ],
   },
@@ -56,9 +61,10 @@ const clientGroups = [
       {
         name: 'Soulbrain',
         nameEn: 'Soulbrain Co., Ltd.',
-        description: '반도체·디스플레이 핵심 소재',
+        description: '2차전지 전해액 및 전자 관련 화학 소재 제조',
         color: '#e63312',
         initial: 'SB',
+        logo: '/img/clients/soulbrain.png',
       },
       {
         name: 'SKON',
@@ -66,6 +72,7 @@ const clientGroups = [
         description: '이차전지 소재 전문기업',
         color: '#00a651',
         initial: 'SK',
+        logo: '/img/clients/skon.png',
       },
     ],
   },
@@ -91,6 +98,7 @@ function ClientHero() {
         <p className={styles.heroSubtitle}>
           대한민국 대표 기업들과 함께 산업 자동화의 미래를 만들어갑니다
         </p>
+{/* 
         <div className={styles.heroStats}>
           <div className={styles.heroStat}>
             <strong>{totalClients}+</strong>
@@ -107,6 +115,7 @@ function ClientHero() {
             <span>고객 재계약률</span>
           </div>
         </div>
+         */}
       </div>
     </header>
   );
@@ -114,6 +123,18 @@ function ClientHero() {
 
 /* ── Logo Component ─────────────────────────── */
 function ClientLogo({client}) {
+  if (client.logo) {
+    return (
+      <div className={styles.logoWrap}>
+        <img
+          src={client.logo}
+          alt={client.name}
+          className={styles.logoImg}
+          loading="lazy"
+        />
+      </div>
+    );
+  }
   return (
     <div className={styles.logoInitial} style={{'--logo-color': client.color}}>
       <span className={styles.logoText}>{client.initial}</span>
@@ -168,7 +189,16 @@ function LogoWall() {
               key={idx}
               className={styles.logoWallItem}
               style={{'--logo-color': client.color}}>
-              <span className={styles.logoWallInitial}>{client.initial}</span>
+              {client.logo ? (
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className={styles.logoWallImg}
+                  loading="lazy"
+                />
+              ) : (
+                <span className={styles.logoWallInitial}>{client.initial}</span>
+              )}
               <span className={styles.logoWallName}>{client.name}</span>
             </div>
           ))}
@@ -212,7 +242,7 @@ export default function Client() {
             <div className={styles.sectionHeader}>
               <span className={styles.sectionLabel}>WHY HAMA SOLUTION</span>
               <Heading as="h2" className={styles.sectionTitle}>
-                고객이 하마솔루션을 선택하는 이유
+                고객이 (주)에이치앤엠에이를 선택하는 이유
               </Heading>
             </div>
             <div className={styles.trustGrid}>

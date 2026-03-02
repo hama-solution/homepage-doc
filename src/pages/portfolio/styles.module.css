@@ -581,6 +581,24 @@
   color: var(--ifm-color-emphasis-600);
 }
 
+/* ── Room Monitoring Image ────────────────── */
+.roomMonitoringWrap {
+  margin-top: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ifm-color-emphasis-100);
+  padding: 1rem;
+}
+
+.roomMonitoringImg {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+}
+
 /* ── Software Architecture Diagram (MES) ──── */
 .swDiagram {
   background: var(--ifm-background-surface-color);
@@ -1073,6 +1091,52 @@
 .ctrl_rio .ctrlDot { background: #f59e0b; }
 .ctrl_network .ctrlDot { background: #10b981; }
 .ctrl_facility .ctrlDot { background: #8b5cf6; }
+
+/* ── Utility Network Images ───────────── */
+.utilNetImages {
+  display: grid;
+  grid-template-columns: 1.75fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+.utilNetImgWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.utilNetImgWrap:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.utilNetImg {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.utilNetImgCaption {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+  letter-spacing: 0.3px;
+}
+
+@media screen and (max-width: 768px) {
+  .utilNetImages {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ── SCADA Panel Detail Diagram ─────────── */
 .scadaPanelDiagram {
