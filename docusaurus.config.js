@@ -10,6 +10,15 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+   headTags: [
+     {
+       tagName: 'link',
+       attributes: {
+         rel: 'canonical',
+         href: 'https://hamasol.com',
+       },
+     },
+   ],
   title: 'HAMA Solution',
   tagline: '스마트 팩토리 IT 솔루션 전문 기업',
   favicon: 'img/favicon.png',
@@ -20,15 +29,15 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://hamasol.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'hama-solution/homepage-doc', // Usually your GitHub org/user name.
+  projectName: 'homepage-doc', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -129,6 +138,16 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
+     metadata: [
+       {name: 'author', content: 'HAMA SOLUTION'},
+       {name: 'naver-site-verification', content: 'd15c96326de5c1a5772488ece9e56be41169f8a0'},
+       {name: 'naver-site-verification', content: '2ce6cddceea67c7b7148a86962c58f23aade9187'},
+       {property: 'og:site_name', content: 'HAMA SOLUTION'},
+       {property: 'og:type', content: 'website'},
+       {property: 'og:title', content: '주식회사 에이치앤엠에이'},
+       {property: 'og:description', content: '환영합니다. 주식회사 에이치앤엠에이입니다.'},
+       {property: 'og:url', content: 'https://hamasol.com'},
+     ],
     }),
 };
 
