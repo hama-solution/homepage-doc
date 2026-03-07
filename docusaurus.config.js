@@ -10,15 +10,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-   headTags: [
-     {
-       tagName: 'link',
-       attributes: {
-         rel: 'canonical',
-         href: 'https://hamasol.com',
-       },
-     },
-   ],
   title: 'HAMA Solution',
   tagline: '스마트 팩토리 IT 솔루션 전문 기업',
   favicon: 'img/favicon.png',
@@ -28,25 +19,37 @@ const config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
+  // Production URL (custom domain)
   url: 'https://hamasol.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/homepage-doc/',
+  baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'hama-solution/homepage-doc', // Usually your GitHub org/user name.
-  projectName: 'homepage-doc', // Usually your repo name.
+  // GitHub Pages deployment config
+  organizationName: 'hama-solution',
+  projectName: 'homepage-doc',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // HTML head meta tags
+  headTags: [
+    // SEO
+    {tagName: 'meta', attributes: {name: 'author', content: 'HAMA SOLUTION'}},
+    {tagName: 'link', attributes: {rel: 'canonical', href: 'https://hamasol.com'}},
+    // Naver Webmaster
+    {tagName: 'meta', attributes: {name: 'naver-site-verification', content: 'd15c96326de5c1a5772488ece9e56be41169f8a0'}},
+    {tagName: 'meta', attributes: {name: 'naver-site-verification', content: '2ce6cddceea67c7b7148a86962c58f23aade9187'}},
+    // Open Graph
+    {tagName: 'meta', attributes: {property: 'og:site_name', content: 'HAMA SOLUTION'}},
+    {tagName: 'meta', attributes: {property: 'og:type', content: 'website'}},
+    {tagName: 'meta', attributes: {property: 'og:title', content: '주식회사 에이치앤엠에이'}},
+    {tagName: 'meta', attributes: {property: 'og:description', content: '환영합니다. 주식회사 에이치앤엠에이입니다.'}},
+    {tagName: 'meta', attributes: {property: 'og:url', content: 'https://hamasol.com'}},
+  ],
+
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ko',
+    locales: ['ko'],
   },
 
   presets: [
@@ -56,10 +59,6 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -67,11 +66,6 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -86,8 +80,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/favicon.png',
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
@@ -138,16 +131,6 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-     metadata: [
-       {name: 'author', content: 'HAMA SOLUTION'},
-       {name: 'naver-site-verification', content: 'd15c96326de5c1a5772488ece9e56be41169f8a0'},
-       {name: 'naver-site-verification', content: '2ce6cddceea67c7b7148a86962c58f23aade9187'},
-       {property: 'og:site_name', content: 'HAMA SOLUTION'},
-       {property: 'og:type', content: 'website'},
-       {property: 'og:title', content: '주식회사 에이치앤엠에이'},
-       {property: 'og:description', content: '환영합니다. 주식회사 에이치앤엠에이입니다.'},
-       {property: 'og:url', content: 'https://hamasol.com'},
-     ],
     }),
 };
 
